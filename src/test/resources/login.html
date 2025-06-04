@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Testowy formularz logowania</title>
+</head>
+<body>
+<h1>Moja Apka - Logowanie</h1>
+<form id="loginForm">
+    <label for="username">Nazwa użytkownika:</label>
+    <input type="text" id="username" name="username" /><br/><br/>
+    <label for="password">Hasło:</label>
+    <input type="password" id="password" name="password" /><br/><br/>
+    <button id="loginButton" type="button">Zaloguj</button>
+</form>
+
+<div id="message" style="margin-top:20px; color: green;"></div>
+
+<script>
+    // Prosta obsługa przycisku: jeśli pola nie są puste, pokaż komunikat powitalny
+    document.getElementById("loginButton").addEventListener("click", function() {
+        var user = document.getElementById("username").value;
+        var pass = document.getElementById("password").value;
+        var msgDiv = document.getElementById("message");
+        if (user === "" || pass === "") {
+            msgDiv.style.color = "red";
+            msgDiv.textContent = "Proszę podać nazwę i hasło!";
+        } else {
+            msgDiv.style.color = "green";
+            msgDiv.textContent = "Witaj, " + user + "!";
+        }
+    });
+</script>
+</body>
+</html>
